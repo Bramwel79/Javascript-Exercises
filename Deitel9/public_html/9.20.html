@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Chapter 9 exercises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Exe 9.20-->
+        <script>
+            function qualityPoints()
+            {
+               var num,ans; 
+               num = parseInt(document.getElementById("inputField").value);
+               if (num < 60)
+               {
+                   ans = 0;
+               }
+               if (num >= 60 && num <= 69)
+               {
+                   ans = 1;
+               }
+               if (num >= 70 && num <= 79)
+               {
+                   ans = 2;
+               }
+               if (num >= 80 && num <= 89)
+               {
+                   ans = 3;
+               }
+               if (num >= 90 && num <= 100)
+               {
+                   ans = 4;
+               }
+               
+               document.getElementById("result").innerHTML =  ans;
+            }
+        </script>
+            
+    </head>
+    <body>
+       <p><label>Enter student's average:
+           <input id = "inputField" type = "text"></label>
+        </p>  
+        <p>
+            <input id = "process" type = "button" 
+                  value = "Process Quality Point" onclick="qualityPoints()">
+        </p>
+        <div id="result">
+            
+        </div>    
+    </body>
+</html>

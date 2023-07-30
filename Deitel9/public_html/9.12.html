@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Number to display</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var nos = ["2","4","6","8","10"];
+            var nos2 = ["3","5","7","9","11"];
+            var nos3 = ["6","10","14","18","22"];
+            function roll()
+            {
+                var s;
+                var s2;
+                var s3;
+                s = Math.floor(0 + Math.random() * 4);
+                s2 = Math.floor(0 + Math.random() * 4);
+                s3 = Math.floor(0 + Math.random() * 4);
+                document.getElementById("result").innerHTML = "Number is " +
+                     nos[s];
+                document.getElementById("result2").innerHTML = "Number is " +
+                     nos2[s2];
+                document.getElementById("result3").innerHTML = "Number is " +
+                     nos3[s3];  
+            }
+            window.addEventListener("load",roll,false);
+        </script>
+            
+    </head>
+    <body>
+        <p id="result"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+    </body>
+</html>

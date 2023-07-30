@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Exercise 9.30</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            // Parameter b must be a positive
+            // integer to prevent infinite recursion
+            function mystery( a, b )
+            {
+               if ( b === 1 )
+                  return a;
+               else
+                  return a + mystery( a, b - 1 );
+            }
+            //function adds a  b times
+            var result = mystery(7,3);
+            alert(result);
+        </script>
+        
+    </body>
+</html>

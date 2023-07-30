@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Exercise 9.25</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var number;
+            var userGuess;
+            function checkResult()
+            {
+                userGuess = parseInt(document.getElementById("guess").value);
+                if(userGuess !== number)  
+                {
+                    if(userGuess > number )
+                    {
+                       document.getElementById("result").innerHTML = 
+                            "<font color='red'><b>" + "Too high";
+                       document.getElementById("guess").value = "";
+                       checkResult();
+                    }
+                    if(userGuess < number )
+                    {
+                       document.getElementById("result").innerHTML = 
+                            "<font color='red'><b>" +  "Too low";
+                       document.getElementById("guess").value = "";
+                       checkResult();
+                    }
+                }
+                else
+                {
+                    document.getElementById("result").innerHTML = 
+                            "<font color='green'><b>" + 
+                            "Congratulations. You guessed the number! Continue " +
+                            "playing";
+                    document.getElementById("guess").value = "";
+                    init();
+                                        
+                }
+            }
+            function init()
+            {
+                document.getElementById("question").focus();
+                number = Math.floor(Math.random() * 1000);
+                //document.getElementById("correct").innerHTML = number;
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <label id="question">Guess a number between 1 and 1000 </label><br />
+        <input type="text" id="guess"> 
+        <input id="click" type="button" value="process" onclick="checkResult()">
+        <label id="result"> </label>
+        <label id="correct"> </label>
+    </body>
+</html>

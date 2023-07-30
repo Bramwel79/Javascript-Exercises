@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Chapter 9 exercise</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Exe 9.24-->
+        <script>
+            var num1;
+            var num2;
+            var correctResponse = 0;
+            var incorrectResponse = 0;
+            var questions = 1; 
+            var percent;
+            var END = 5;
+            
+            function checkResult()
+            {
+                var right = ["Very good!","Excellent",
+                            "Nice work!","Keep up the good work"];
+                var wrong = ["No.Please try again.","Wrong. Try once more.",
+                             "Don't give up!","No. keep trying."];
+                var index = Math.floor(Math.random() * 4); 
+                                                
+                var product = parseInt(document.getElementById("product").value);
+                if(product === (num1 * num2))
+                {
+                    ++correctResponse;
+                    document.getElementById("product").value ="";
+                    document.getElementById("result").innerHTML = 
+                            "<font color='green'><b>" + right[index] + "</b></font>";
+                    doCalculation();
+                    
+                }
+                else
+                {
+                    ++incorrectResponse;
+                    document.getElementById("result").innerHTML =
+                            "<font color='red'><b>" + wrong[index] + "</b></font>";
+                    doCalculation();
+                   
+                }
+               // questions += 1; 
+                if(questions === END)
+                {
+                    analyseResults();
+                                                     
+                }
+            }
+            
+            function resetExam()
+            {
+                document.getElementById("click").disabled = false; //enable button
+                document.getElementById("result2").innerHTML = " ";
+                questions = 0;
+                correctResponse = 0;
+                incorrectResponse = 0;
+                doCalculation();
+               
+            }
+                
+            
+            function analyseResults()
+            {
+               //calculate % of correct answers
+               percent = Math.floor(((correctResponse / END) * 100));
+               if(percent < 75)
+               {
+                  document.getElementById("result2").innerHTML =
+                   "<font color='red'><b>" + percent + 
+                   " % Please ask your instructor for extra help </b></font>"; 
+               }
+                             
+               if(percent >= 75)
+               {
+                  document.getElementById("result2").innerHTML =
+                   "<font color='green'><b>" + percent + 
+                   " % Congratulations. You may continue if you wish </b></font>"; 
+               }
+               document.getElementById("click").disabled = true; //disable button 
+               document.getElementById("clear").disabled = false; //enable button
+               
+            }
+            function doCalculation()
+            {
+                document.getElementById("controls").style.visibility = 'visible';
+                document.getElementById("clear").disabled = true; //disable button
+                num1 = Math.floor(Math.random() * 9)+ 1; //between 1 and 9
+                num2 = Math.floor(Math.random() * 9) + 1; //between 1 and 9
+                document.getElementById("question").innerHTML =  "Question " + 
+                        questions + ": What is " + num1
+                      + " times " + num2;
+                questions += 1;
+                document.getElementById("product").focus();
+                              
+            }
+            function init()
+            {
+                document.getElementById("controls").style.visibility = 'hidden';
+                doCalculation();
+                                            
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <div id="controls">
+            <label id="question"> </label><br />
+            <input type="text" id="product"> 
+            <input id="click" type="button" value="process" onclick="checkResult()">
+            <input id="clear" type="button" value="reset" onclick="resetExam()">
+             <label id="result"> </label>
+            <p><label id="result2"> </label></p>
+        </div>
+    </body>
+</html>

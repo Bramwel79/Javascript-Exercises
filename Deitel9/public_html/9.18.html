@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Deitel Chapter 9 Exercises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--Exe 9.18-->
+        <script>
+                       
+            function minimum3(num1,num2)
+            {
+                var temp1,temp2,r,ans;
+                temp1 = parseFloat(num1);
+                temp2 = parseFloat(num2);
+                r = Math.min(temp1,temp2);
+                return r;
+                
+                  
+            }
+                                 
+        </script>
+    </head>
+    <body>
+        <script>
+        var no1,no2,no3,temp,final;
+        no1 = window.prompt( "Enter first number", "0" );
+        no2 = window.prompt( "Enter second number", "0" );
+        no3 = window.prompt( "Enter third number", "0" );
+        temp = minimum3(parseFloat(no1),parseFloat(no2));
+        final = minimum3(temp,parseFloat(no3));
+        alert("The minimum number is " + final);
+        </script>
+        
+        
+    </body>
+</html>
+
+
+

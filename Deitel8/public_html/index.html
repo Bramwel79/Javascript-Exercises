@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Chapter 8 Exercises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!--8.6
+        <script type="text/javascript">
+            var counter;
+            var number;
+            var input;
+            var smallest = 999999;
+            number = prompt("Enter number ");
+            while(isNaN(number) || number < 0)
+                {
+                    number = prompt("Re-enter number ");
+                }
+            for(counter = 1; counter <= number;++counter)
+            {
+                input = prompt("Enter next number ");
+                while(isNaN(input) || input < 0)
+                {
+                    input = prompt("Re-enter next number ");
+                }
+                if(parseInt(input) < smallest)
+                {
+                    smallest = parseInt(input);
+                }
+            }
+            
+            document.write("Smallest number is " + smallest);
+        </script>
+         -->
+         
+         <!--8.7
+         <script type="text/javascript">
+             var product = 1;
+             var start = 1;
+             var end = 15;
+             
+             for(x = start; x <= end; x = x + 2)
+             {
+                 product *= x; 
+             }
+             document.write("Product of odd integers" +
+                     " from " + start + " to " + end + " = " +
+                     product);
+         </script>
+         -->
+         
+         <!--8.8
+         <style type = "text/css">
+             table { width: 300px;
+             border-collapse: collapse;
+             background-color: lightblue; }
+             table, td, th { border: 1px solid black;
+             padding: 4px; }
+             th { text-align: left;
+             color: white;
+             background-color: darkblue; }
+             tr.oddrow { background-color: white; }
+         </style>
+         <script>
+             var principal = 1000.00; // principal amount
+             var amount; // current amount of money
+          for( var rate = 5; rate <= 10; ++rate)
+          {
+            
+            document.writeln("<table>" ); // begin the table
+            document.writeln("<caption>Calculating Compound Interest @ " + rate
+                              + " % </caption>" );
+            document.writeln("<thead><tr><th>Year</th>" ); // year column heading
+            document.writeln("<th>Amount on deposit</th>" ); // amount column heading
+            document.writeln( "</tr></thead><tbody>" );
+
+            // output a table row for each year
+            for ( var year = 1; year <= 10; ++year )
+            {
+              amount = principal * Math.pow( 1.0 + rate, year );
+
+              if ( year %2 !== 0)
+                 document.writeln( "<tr class='oddrow'><td>" + year +
+                   "</td><td>" + amount.toFixed(2) + "</td></tr>" );
+              else
+                 document.writeln( "<tr><td>" + year +
+                   "</td><td>" + amount.toFixed(2) + "</td></tr>" );
+           
+               amount = 0; //reset amount for next iteration
+            } //end for
+
+             document.writeln( "</tbody></table>" );
+             
+         }    
+          </script>  
+         -->
+         
+        <!--8.9
+        <script type="text/javascript">
+            var min = 1;
+            var max = 30;
+            var input;
+            
+            for(var number = 1 ; number <= 5;++number)
+            {
+                input = prompt("Enter number between " + min +
+                              " and " + max);
+                while(isNaN(input) || input < min || input > max)
+                {
+                    input = prompt("Re-enter number between " + min +
+                              " and " + max);
+                }
+                
+                document.write(input);
+                for(var times = 1; times <= input;++times)
+                {
+                    document.write("*");
+                }
+                document.write("<br />");            
+            }
+        </script>
+        -->
+        
+        <!--8.10
+        <script type="text/javascript">
+          var choice;
+          for(choice = 1; choice <= 1;++choice)
+          {    
+                switch(choice)
+                {
+                    case 1:
+                    document.writeln("On the first day of Christmas " + " my true " + 
+                     " love sent to me:A partridge in a pear tree." + "<br />");
+                    case 2:
+                    document.writeln("On the second day of Christmas " +  " my true " +
+                    " love sent to me:Two turtle doves And a Partridge in a pear " +
+                    " tree."+ "<br />");
+                    case 3: 
+                    document.writeln("On the third day of Christmas " + " my true " + 
+                    " love sent to me:Three French Hens,Two turtle doves " + 
+                    " And a Partridge in a pear tree."+ "<br />");
+                    case 4:
+                    document.writeln("On the fourth day of Christmas " + " my true " +
+                    " love sent to me:Four calling birds,Three French Hens," +
+                    " Two turtle doves And a Partridge in a pear tree."+ "<br />");
+                    case 5:
+                    document.writeln("On the fifth day of Christmas  " + "my true " + 
+                    " love sent to me:Five golden rings,Four calling birds," +
+                    " Three French Hens,Two turtle doves " + 
+                    " And a Partridge in a pear tree."+ "<br />");
+                    case 6:
+                    document.writeln("On the sixth day of Christmas " + " my true " + 
+                    " love sent to me:Six geese a laying,Five golden rings," +
+                    " Four calling birds,Three French Hens,Two turtle doves " +
+                    " And a Partridge in a pear tree."+ "<br />");
+                    case 7:
+                    document.writeln("On the seventh day of Christmas " + "my true " +
+                    " love sent to me:Seven swans a swimming,Six geese a laying," +
+                    " Five golden rings,Four calling birds,Three French Hens, " +
+                    " Two turtle doves And a Partridge in a pear tree."+ "<br />");
+                    case 8:
+                    document.writeln("On the eighth day of Christmas " + "my true " + 
+                    " love sent to me: Eight maids a milking,Seven swans a swimming," +
+                    "Six geese a laying,Five golden rings,Four calling birds, " +
+                    " Three French Hens,Two turtle doves " + 
+                    " And a Partridge in a pear tree."+ "<br />");
+                    case 9:
+                    document.writeln("On the ninth day of Christmas " + "my true " +
+                    " love sent to me:Nine ladies dancing,Eight maids a milking, " +
+                    " Seven swans a swimming,Six geese a laying,Five golden rings," +
+                    " Four calling birds,Three French Hens,Two turtle doves " +
+                    " And a Partridge in a pear tree."+ "<br />");
+                    case 10:
+                    document.writeln("On the tenth day of Christmas " + " my true " + 
+                    " love sent to me:Ten lords a leaping,Nine ladies dancing," +
+                    "Eight maids a milking,Seven swans a swimming,Six geese a laying," +
+                    " Five golden rings,Four calling birds,Three French Hens," +
+                    " Two turtle doves And a Partridge in a pear tree."+ "<br />");
+                    case 11:
+                    document.writeln("On the eleventh day of Christmas " + "my true " +
+                    " love sent to me:Eleven pipers piping,Ten lords a leaping, " +
+                    " Nine ladies dancing,Eight maids a milking, " + 
+                    " Seven swans a swimming,Six geese a laying,Five golden rings," +
+                    " Four calling birds,Three French Hens,Two turtle doves " +
+                    " And a Partridge in a pear tree."+ "<br />");
+                    case 12:
+                    document.writeln("On the twelfth day of Christmas " + " my true " +
+                    " love sent to me:Twelve drummers drumming,Eleven pipers piping," +
+                    " Ten lords a leaping,Nine ladies dancing,Eight maids a milking,"+
+                    " Seven swans a swimming,Six geese a laying,Five golden rings,"+
+                    " Four calling birds,Three French Hens,Two turtle doves " +
+                    " And a Partridge in a pear tree."+ "<br />");
+                }
+            } 
+        </script>
+        -->
+        <!--8.11
+        <script type="text/javascript">
+          var productNumber;
+          var quantity;
+          var min = 1; 
+          var max = 5;
+          var price;
+          var totalProduct1 = 0;
+          var totalProduct2 = 0;
+          var totalProduct3 = 0;
+          var totalProduct4 = 0;
+          var totalProduct5 = 0;
+          var sentinel;
+          
+          sentinel = prompt("Type yes to continue or no to exit:");
+          while(sentinel !== "no")
+          {
+          
+                productNumber = prompt("Enter product number between " + min +
+                                    " and " + max);
+                
+                switch(productNumber)
+                {
+                    case "1":
+                        price = 2.98;
+                        break;
+                    case "2":
+                        price = 4.50;
+                        break;
+                    case "3":
+                        price = 9.98;
+                        break;
+                     case "4":
+                        price = 4.49;
+                        break;
+                    case "5":
+                        price = 6.87;
+                        break;
+                    default:
+                        price = 0.00;
+                        
+                }
+
+                quantity = prompt("Enter product quantity");
+                                
+                if(parseInt(productNumber) === 1)
+                {
+                    totalProduct1 = price * quantity;
+                }
+                if(parseInt(productNumber) === 2)
+                {
+                    totalProduct2 = price * quantity;
+                }
+                if(parseInt(productNumber) === 3)
+                {
+                    totalProduct3 = price * quantity;
+                }
+                if(parseInt(productNumber) === 4)
+                {
+                    totalProduct4 = price * quantity;
+                }
+                if(parseInt(productNumber) === 5)
+                {
+                    totalProduct5 = price * quantity;
+                }
+                
+             sentinel = prompt("Type yes to continue or no to exit:");   
+         }
+         
+         document.writeln("Retail value of product 1 = " + totalProduct1);
+         document.write("<br />");            
+         document.writeln("Retail value of product 2 = " + totalProduct2);
+         document.write("<br />");            
+         document.writeln("Retail value of product 3 = " + totalProduct3);
+         document.write("<br />");            
+         document.writeln("Retail value of product 4 = " + totalProduct4);
+         document.write("<br />");            
+         document.writeln("Retail value of product 5 = " + totalProduct5);
+        </script>
+        -->
+        <!--8.12
+        <script type="text/javascript">
+            var i = 1;
+            var j = 2;
+            var k = 3;
+            var m = 2;
+            
+            document.writeln(i == 1);
+            document.write("<br />");            
+            document.writeln(j == 3);
+            document.write("<br />");            
+            document.writeln(i >= 1 && j < 4);
+            document.write("<br />");            
+            document.writeln( m <= 99 && k < m );
+            document.write("<br />");            
+            document.writeln( j >= i || k == m );
+            document.write("<br />");            
+            document.writeln( k + m < j || 3 - j >= k );
+            document.write("<br />");            
+            document.writeln( !( k > m ) );
+        </script>
+        -->
+        
+        <!--8.13
+        <script type="text/javascript">
+           var k;
+           k = 10;
+           switch ( k )
+           {
+                case 1:
+                break;
+                case 2:
+                case 3:
+                ++k;
+                break;
+                case 4:
+                --k;
+                break;
+                default:
+                k *= 3;
+           } 
+           x = k; 
+           document.writeln("x = " + x);
+        </script>
+        -->
+    </body>
+</html>

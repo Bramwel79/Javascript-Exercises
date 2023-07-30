@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script>
+            function isEven(number)
+            {
+                var ans = false;
+                if(number % 2 === 0)
+                {
+                    ans = true;
+                }
+                if(ans === true)
+                {
+                   document.write("<p>" + number  + " is even" + "</p>"); 
+                }
+                else
+                {
+                   document.write("<p>" + number  + " is not even" + "</p>");  
+                }
+            }
+           var input1  = window.prompt("Enter a number or 0 to quit","0");
+           var value = parseInt(input1);
+           while(value !== 0)
+           {
+              isEven(value);
+              input1  = window.prompt("Enter a number or 0 to quit","0");
+              value = parseInt(input1);
+                            
+           }
+        </script>
+    </head>
+    <body>
+        
+        
+    </body>
+</html>
+
+

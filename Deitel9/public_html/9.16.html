@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Deitel Chapter 9 Exercises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--Exe 9.16-->
+        <script>
+            function start()
+            {
+               var button = document.getElementById("processButton");
+               button.addEventListener("click",displayDigits,false);
+            }
+            function getQuotient(number1,number2)
+            {
+                var ans,a,b;
+                a = parseInt(number1.valueOf());
+                b = parseInt(number2.valueOf());
+                return ans = a / b;
+                
+            }
+            
+            function getRemainder(number1,number2)
+            {
+                var ans,c,d;
+                c = parseInt(number1.valueOf());
+                d = parseInt(number2.valueOf());
+                return ans = c % d;
+                
+            }
+            
+            function displayDigits(num)
+            {
+                var intNumber,digit1,digit2,digit3,digit4,digit5;
+                var temp1,temp2,temp3,w;
+                w = document.getElementById("result");
+                num = document.getElementById("no");
+                intNumber = parseInt(num.value);
+                w.innerHTML = "number = " + intNumber;              
+                
+                if(intNumber <= 0 || intNumber > 99999)
+                {
+                    w.innerHTML = "Number not between 1 and 99999";
+                    exit;
+                    
+                }
+                              
+                digit1 = getQuotient(parseInt(intNumber),10000);
+                temp1 = getRemainder(parseInt(intNumber),10000);
+                digit2 = getQuotient(parseInt(temp1),1000);
+                temp2 = getRemainder(parseInt(temp1),1000);
+                digit3 = getQuotient(parseInt(temp2),100);
+                temp3 = getRemainder(parseInt(temp2),100);
+                digit4 = getQuotient(parseInt(temp3),10);
+                digit5 = getRemainder(parseInt(temp3),10);
+                if(Math.floor(digit1) === 0)
+                {
+                   w.innerHTML = "  ";
+                }
+                else
+                {
+                   w.innerHTML = Math.floor(digit1) + "  ";
+                }
+                if(Math.floor(digit2) === 0)
+                {
+                   w.innerHTML += "  ";
+                }
+                else
+                {
+                   w.innerHTML += Math.floor(digit2) + "  ";
+                }
+                if(Math.floor(digit3) === 0)
+                {
+                   w.innerHTML += "  ";
+                }
+                else
+                {
+                   w.innerHTML += Math.floor(digit3) + "  ";
+                }
+                if(Math.floor(digit4) === 0)
+                {
+                   w.innerHTML += "  ";
+                }
+                else
+                {
+                   w.innerHTML += Math.floor(digit4) + "  ";
+                }
+                if(Math.floor(digit5) === 0)
+                {
+                   w.innerHTML += "  ";
+                }
+                else
+                {
+                   w.innerHTML += Math.floor(digit5) + "  ";
+                }
+                  
+            }
+            
+           window.addEventListener("load",start,false);
+        </script>
+    </head>
+    <body>
+        <form action="#">
+            <p><label>Enter a number between 1 and 99999:</label>
+                <input id="no" type ="number">
+                <input id="processButton" type="button" value ="Calculate">
+           </p>
+        </form>
+          <p id="result"></p>
+                
+    </body>
+</html>
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Exercise 9.8</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+           var cumm = 0;
+           function start()
+           {
+               var button = document.getElementById("calculateButton");
+               button.addEventListener("click",calculateCharges,false);
+           }
+           
+           function calculateCharges()
+           {
+               var answer;
+               var input = document.getElementById("hoursField");
+               var hours = parseFloat(input.value);
+               if(hours <= 3)
+               {
+                   answer = 2;
+               }
+               if(hours > 3)
+               {
+                   var extraHoursCharge =  ((hours - 3) * 0.50);
+                   answer = 2 + extraHoursCharge;
+                   
+               }
+               var result = document.getElementById("result");
+               result.innerHTML = "The current charge is " + answer;
+               
+               var result2 = document.getElementById("result2");
+               result2.innerHTML = "The cumulative charge is " + (cumm = cumm +
+                       answer);
+           }
+                     
+            window.addEventListener("load",start,false);
+        </script>
+            
+    </head>
+    <body>
+        <form action = "#">
+           <p><label>Enter hours car was parked:
+           <input id = "hoursField" type = "number"></label>
+           <input id = "calculateButton" type = "button" value = "Calculate"></p>
+        </form>
+        <p id="result"></p>
+        <p id="result2"></p>
+    </body>
+</html>

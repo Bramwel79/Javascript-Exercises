@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Exercise 9.27</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            var firstNumber;
+            var secondNumber;
+            var percent;
+            var correctAnswer;
+            var studentAnswer;
+            var questions = 0;
+            var maxQuestions = 5;
+            var correctResponse = 0;
+            var incorrectResponse = 0;
+            
+            function oneDigitProblem() // 0 to 9
+            {
+                firstNumber = Math.floor((Math.random() * 10)); 
+                secondNumber = Math.floor((Math.random() * 10)); 
+            }
+            
+            function twoDigitProblem() // 10 to 99
+            {
+                firstNumber = Math.floor((Math.random() * 100)); 
+                secondNumber = Math.floor((Math.random() * 100)); 
+            }
+            
+            function threeDigitProblem() //100 to 999
+            {
+                firstNumber = Math.floor((Math.random() * 1000)); 
+                secondNumber = Math.floor((Math.random() * 1000)); 
+            }
+            
+            function fourDigitProblem() //1000 to 9999
+            {
+                firstNumber = Math.floor((Math.random() * 10000)); 
+                secondNumber = Math.floor((Math.random() * 10000)); 
+            }
+            
+            function fiveDigitProblem() //10000 to 99999
+            {
+                firstNumber = Math.floor((Math.random() * 100000)); 
+                secondNumber = Math.floor((Math.random() * 100000)); 
+            }
+            
+            function getGradeLevel()
+            {
+                var gLevel = parseInt(document.getElementById("grade").
+                        value);
+                return gLevel;
+            }
+            
+            function getArithmeticChoice()
+            {
+                var arithmeticProblem = parseInt(document.
+                        getElementById("choice").value);
+                return arithmeticProblem;
+            }
+            
+            function getStudentAnswer()
+            {
+                studentAnswer = parseFloat(document.getElementById("product").
+                        value);
+                return studentAnswer;
+            }
+            
+            function checkResult()
+            {
+                var right = ["Very good!","Excellent",
+                            "Nice work!","Keep up the good work"];
+                var wrong = ["No.Please try again.","Wrong. Try once more.",
+                             "Don't give up!","No. keep trying."];
+                var index = Math.floor(Math.random() * 4);
+                
+                document.getElementById("temp").style.visibility = 'visible';
+                
+                if(getStudentAnswer() === correctAnswer)
+                {
+                    ++correctResponse;
+                    document.getElementById("temp").innerHTML = 
+                     "<font color='green'><b>" + right[index] + "</b></font>";
+                }
+                else
+                {
+                     ++incorrectResponse;
+                     document.getElementById("temp").innerHTML =
+                       "<font color='red'><b>" + wrong[index] + "</b></font>";
+                }
+                
+                document.getElementById("question").style.visibility = 'hidden';
+                document.getElementById("product").style.visibility = 'hidden';
+                document.getElementById("click2").style.visibility = 'hidden';
+                document.getElementById("final").style.visibility = 'hidden';
+                
+                ++questions;
+                if(questions === maxQuestions)
+                {
+                    getSummary();
+                }
+                
+            }
+            
+            function makeReadOnly()
+            {
+                document.getElementById("grade").readOnly = true;
+                document.getElementById("choice").readOnly = true;
+            }
+            
+            function makeWrite()
+            {
+                document.getElementById("grade").readOnly = false;
+                document.getElementById("choice").readOnly = false;
+                document.getElementById("grade").value = "";
+                document.getElementById("choice").value = "";
+            }
+            
+            function getQuestion()
+            {
+                var count = questions + 1;
+                var gr = getGradeLevel();
+                var ch = getArithmeticChoice();
+                
+                //get count of question
+                document.getElementById("no").innerHTML = "Question: " + count;
+                ++count;
+                
+                document.getElementById("temp").style.visibility = 'hidden';
+                document.getElementById("question").style.visibility = 'visible';
+                document.getElementById("product").style.visibility = 'visible';
+                document.getElementById("click2").style.visibility = 'visible';
+                
+                //deal with one digit problems
+                //*************************************************************
+                if(gr === 1)
+                {
+                  oneDigitProblem();
+                  
+                  if(ch === 1)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " + " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber + secondNumber;
+                    document.getElementById("product").value = "";
+                  }  
+                  
+                  if(ch === 2)
+                  {
+                    document.getElementById("question").innerHTML =  "What is " 
+                            + firstNumber + " - " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber - secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 3)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " * " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber * secondNumber;
+                    document.getElementById("product").value = "";
+                  }
+                  
+                  if(ch === 4)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " / " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber / secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 5)
+                  {
+                    var temp = Math.floor(Math.random() * 4);
+                    var arr = ["+","-","*","/"];
+                    var sign;
+                    
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + arr[temp] + secondNumber;
+                    document.getElementById("product").focus();
+                    
+                    sign = arr[temp];
+                    if(sign === arr[0])
+                    {
+                       correctAnswer = firstNumber + secondNumber; 
+                    }
+                    
+                    if(sign === arr[1])
+                    {
+                       correctAnswer = firstNumber - secondNumber; 
+                    }
+                    
+                    if(sign === arr[2])
+                    {
+                       correctAnswer = firstNumber * secondNumber; 
+                    }
+                    
+                    if(sign === arr[3])
+                    {
+                       correctAnswer = firstNumber / secondNumber; 
+                    }
+                                      
+                    document.getElementById("product").value = "";
+                  }
+                }
+                
+                //deal with two digit problems
+                //************************************************************
+                if(gr === 2)
+                {
+                    twoDigitProblem();
+                    
+                    if(ch === 1)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " + " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber + secondNumber;
+                    document.getElementById("product").value = "";
+                  }  
+                  
+                  if(ch === 2)
+                  {
+                    document.getElementById("question").innerHTML =  "What is " 
+                            + firstNumber + " - " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber - secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 3)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " * " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber * secondNumber;
+                    document.getElementById("product").value = "";
+                  }
+                  
+                  if(ch === 4)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " / " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber / secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 5)
+                  {
+                    var temp = Math.floor(Math.random() * 4);
+                    var arr = ["+","-","*","/"];
+                    var sign;
+                    
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + arr[temp] + secondNumber;
+                    document.getElementById("product").focus();
+                    
+                    sign = arr[temp];
+                    if(sign === arr[0])
+                    {
+                       correctAnswer = firstNumber + secondNumber; 
+                    }
+                    
+                    if(sign === arr[1])
+                    {
+                       correctAnswer = firstNumber - secondNumber; 
+                    }
+                    
+                    if(sign === arr[2])
+                    {
+                       correctAnswer = firstNumber * secondNumber; 
+                    }
+                    
+                    if(sign === arr[3])
+                    {
+                       correctAnswer = firstNumber / secondNumber; 
+                    }
+                                      
+                    document.getElementById("product").value = "";
+                  }
+                    
+                }
+                
+                //deal with three digit problems
+                //************************************************************
+                if(gr === 3)
+                {
+                    threeDigitProblem();
+                    
+                  if(ch === 1)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " + " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber + secondNumber;
+                    document.getElementById("product").value = "";
+                  }  
+                  
+                  if(ch === 2)
+                  {
+                    document.getElementById("question").innerHTML =  "What is " 
+                            + firstNumber + " - " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber - secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 3)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " * " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber * secondNumber;
+                    document.getElementById("product").value = "";
+                  }
+                  
+                  if(ch === 4)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " / " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber / secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 5)
+                  {
+                    var temp = Math.floor(Math.random() * 4);
+                    var arr = ["+","-","*","/"];
+                    var sign;
+                    
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + arr[temp] + secondNumber;
+                    document.getElementById("product").focus();
+                    
+                    sign = arr[temp];
+                    if(sign === arr[0])
+                    {
+                       correctAnswer = firstNumber + secondNumber; 
+                    }
+                    
+                    if(sign === arr[1])
+                    {
+                       correctAnswer = firstNumber - secondNumber; 
+                    }
+                    
+                    if(sign === arr[2])
+                    {
+                       correctAnswer = firstNumber * secondNumber; 
+                    }
+                    
+                    if(sign === arr[3])
+                    {
+                       correctAnswer = firstNumber / secondNumber; 
+                    }
+                                      
+                    document.getElementById("product").value = "";
+                  }
+                    
+                }
+                
+                //deal with four digit problems
+                //************************************************************
+                if(gr === 4)
+                {
+                    fourDigitProblem();
+                    
+                    if(ch === 1)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " + " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber + secondNumber;
+                    document.getElementById("product").value = "";
+                  }  
+                  
+                  if(ch === 2)
+                  {
+                    document.getElementById("question").innerHTML =  "What is " 
+                            + firstNumber + " - " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber - secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 3)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " * " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber * secondNumber;
+                    document.getElementById("product").value = "";
+                  }
+                  
+                  if(ch === 4)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " / " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber / secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 5)
+                  {
+                    var temp = Math.floor(Math.random() * 4);
+                    var arr = ["+","-","*","/"];
+                    var sign;
+                    
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + arr[temp] + secondNumber;
+                    document.getElementById("product").focus();
+                    
+                    sign = arr[temp];
+                    if(sign === arr[0])
+                    {
+                       correctAnswer = firstNumber + secondNumber; 
+                    }
+                    
+                    if(sign === arr[1])
+                    {
+                       correctAnswer = firstNumber - secondNumber; 
+                    }
+                    
+                    if(sign === arr[2])
+                    {
+                       correctAnswer = firstNumber * secondNumber; 
+                    }
+                    
+                    if(sign === arr[3])
+                    {
+                       correctAnswer = firstNumber / secondNumber; 
+                    }
+                                      
+                    document.getElementById("product").value = "";
+                  }
+                    
+                }
+                
+                //deal with five digit problems
+                //************************************************************
+                if(gr === 5)
+                {
+                    fiveDigitProblem();
+                    
+                    if(ch === 1)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " + " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber + secondNumber;
+                    document.getElementById("product").value = "";
+                  }  
+                  
+                  if(ch === 2)
+                  {
+                    document.getElementById("question").innerHTML =  "What is " 
+                            + firstNumber + " - " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber - secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 3)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " * " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber * secondNumber;
+                    document.getElementById("product").value = "";
+                  }
+                  
+                  if(ch === 4)
+                  {
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + " / " + secondNumber;
+                    document.getElementById("product").focus();
+                    correctAnswer = firstNumber / secondNumber;
+                    document.getElementById("product").value = "";                  
+                  }
+                  
+                  if(ch === 5)
+                  {
+                    var temp = Math.floor(Math.random() * 4);
+                    var arr = ["+","-","*","/"];
+                    var sign;
+                    
+                    document.getElementById("question").innerHTML =  "What is "
+                            + firstNumber + arr[temp] + secondNumber;
+                    document.getElementById("product").focus();
+                    
+                    sign = arr[temp];
+                    if(sign === arr[0])
+                    {
+                       correctAnswer = firstNumber + secondNumber; 
+                    }
+                    
+                    if(sign === arr[1])
+                    {
+                       correctAnswer = firstNumber - secondNumber; 
+                    }
+                    
+                    if(sign === arr[2])
+                    {
+                       correctAnswer = firstNumber * secondNumber; 
+                    }
+                    
+                    if(sign === arr[3])
+                    {
+                       correctAnswer = firstNumber / secondNumber; 
+                    }
+                                      
+                    document.getElementById("product").value = "";
+                  }
+                    
+                }
+            }
+            
+            function getSummary()
+            {
+                //give summary of results
+              document.getElementById("final").style.visibility = 'visible';
+              score = correctResponse / maxQuestions * 100;
+              document.getElementById("final").innerHTML = "You scored " +
+                      score + " %";
+              makeWrite();
+            }
+            
+            function init()
+            {
+                document.getElementById("question").style.visibility = 'hidden';
+                document.getElementById("product").style.visibility = 'hidden';
+                document.getElementById("final").style.visibility = 'hidden';
+                document.getElementById("temp").style.visibility = 'hidden';
+                document.getElementById("click2").style.visibility = 'hidden';
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <label id="gradeLevel">Enter your grade level(from 1 to 5):</label>
+        <input type="text" id="grade"><br /><br /> 
+        <label id="menu">Arithmetic Problems Menu:</label><br />
+        <label id="m1">1 - Addition</label><br />
+        <label id="m2">2 - Subtraction</label><br />
+        <label id="m3">3 - Multiplication</label><br />
+        <label id="m4">4 - Division</label><br />
+        <label id="m5">5 - Random Mix of all the above</label><br />
+        <label id="gradeLevel">Enter your arithmetic choice:</label>
+        <input type="text" id="choice"><br /><br /> 
+        <input id="click" type="button" value="Get Question" 
+               onclick="getQuestion();makeReadOnly()">
+                  <br />
+        <label id="no"></label>  
+                  <br />        
+        <label id="question">The question is</label>
+        <input type="text" id="product"><br />
+        <input id="click2" type="button" value="Process" onclick="checkResult()">
+                  <br />
+        <label id="temp"></label>
+                  <br />
+        <label id="final"></label>          
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Chapter 9 exercise</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Exe 9.21-->
+        <script>
+            var totalHeads,totalTails;
+            totalHeads = 0;
+            totalTails = 0;
+            function toss()
+            {
+               var ans;
+               ans = flip();
+               if (ans === 1)
+               {
+                  totalHeads += 1; 
+               }
+               else
+               {
+                   totalTails += 1;
+               }
+                             
+               document.getElementById("result")
+                       .innerHTML = totalHeads;
+               document.getElementById("result2")
+                       .innerHTML = totalTails ;
+               ans = 0;
+               
+            }
+            function flip()
+            {
+                var s;
+                s = Math.floor(1 + Math.random() * 2);
+                             
+                return s;
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            <input id = "process" type = "button" 
+                  value = "Toss Coin" onclick="toss()">
+        </p>
+        <label>Heads Count:</label>
+        <div id="result"></div>
+         <label>Tails Count:</label>
+        <div id="result2"></div>
+    </body>
+</html>

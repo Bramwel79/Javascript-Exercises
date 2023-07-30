@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Deitel Chapter 9 Exercises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--Exe 9.17-->
+        <script>
+                       
+            function celsius()
+            {
+                var C,temp,num,ans;
+                num = document.getElementById("tempField").value;
+                ans  = document.getElementById("result");
+                temp = parseInt(num);
+                C = 5.0 / 9.0 * (num - 32);              
+                ans.innerHTML = "Temperature in celsius = " + C;  
+            }
+            
+            function fahrenheit()
+            {
+                var F,temp,num,ans;
+                num = document.getElementById("tempField").value;
+                ans  = document.getElementById("result");
+                temp = parseInt(num);
+                F = 9.0 / 5.0 * num + 32;
+                ans.innerHTML = "Temperature in fahrenheit = " + F;  
+                
+            }
+            
+        </script>
+    </head>
+    <body>
+        <form action = "#">
+           <p><label>Enter temperature:
+           <input id = "tempField" ></label>
+           <input id = "celsiusButton" type = "button" 
+                  value = "Convert to Celsius" onclick="celsius()">
+           <input id = "fahButton" type = "button" 
+                  value = "Convert to Fahrenheit" onclick="fahrenheit()">
+           </p>
+        </form>
+        <p id="result"></p>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script>
+           function start()
+           {
+               var button = document.getElementById("calculateButton");
+               button.addEventListener("click",integerPower,false);
+           }
+           
+           function integerPower(base, exponent)
+           {
+               var r = 1;
+               base = document.getElementById("baseField");
+               exponent = document.getElementById("exponentField");
+               b = parseInt(base.value);
+               e = parseInt(exponent.value);
+               while(e >= 1)
+               {
+                  r = r * b;
+                  --e;
+               }
+                             
+               var result = document.getElementById("result");
+               result.innerHTML = b + " raised to power  " + 
+                       parseInt(exponent.value) + " = "    + r;
+           }
+                      
+            window.addEventListener("load",start,false);
+        </script>
+    </head>
+    <body>
+        
+        <form action = "#">
+           <p><label>Base:
+           <input id = "baseField" type = "number"></label>
+           <label>Exponent:
+           <input id = "exponentField" type = "number"></label>
+           <input id = "calculateButton" type = "button" value = "Calculate"></p>
+        </form>
+        <p id="result"></p>
+    </body>
+</html>

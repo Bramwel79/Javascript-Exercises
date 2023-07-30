@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Exercise 9.29</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function power(base,exponent)
+            {
+               if(exponent === 1)
+                {
+                   return base;
+                                       
+                }
+                else
+                {
+                    return base * power(base,exponent-1);
+                }
+                            
+            }
+            function getPower()
+            {
+                var result;
+                var bas = parseInt(document.getElementById("base").value);
+                var exp = parseInt(document.getElementById("exponent").value); 
+                result = power(bas,exp);
+                document.getElementById("result").innerHTML = bas;
+                document.getElementById("result").innerHTML += " raised to ";
+                document.getElementById("result").innerHTML += exp;
+                document.getElementById("result").innerHTML += " = ";
+                document.getElementById("result").innerHTML += result;
+            }
+           
+        </script>
+    </head>
+    <body>
+        <label id="powerbase">Enter base:</label>
+        <input type="text" id="base"><br /><br />
+        <label id="powerexponent">Enter exponent:</label>
+        <input type="text" id="exponent"><br /><br />
+        <input id="click" type="button" value="Get Result" 
+               onclick="getPower()">
+        <br />
+        <div id="result"></div>  
+                  
+    </body>
+</html>

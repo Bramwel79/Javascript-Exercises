@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Distance between two points</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+         function start()
+         {
+               var button = document.getElementById("calculateButton");
+               button.addEventListener("click",distance,false);
+         }
+         function  distance()
+         {
+             var d,x1,x2,y1,y2;
+             x1 = parseFloat(document.getElementById("inputFieldx1").value);
+             x2 = parseFloat(document.getElementById("inputFieldx2").value);
+             y1 = parseFloat(document.getElementById("inputFieldy1").value);
+             y2 = parseFloat(document.getElementById("inputFieldy2").value);
+             d = Math.sqrt((Math.pow(x2 - x1,2) + Math.pow(y2-y1,2)));
+             document.getElementById("result").innerHTML = "Distance is " +
+                     d.toFixed(2);
+                     
+         }
+         window.addEventListener("load",start,false);   
+        </script>
+            
+    </head>
+    <body>
+        <form action = "#">
+           <p><label>Enter length of x1:
+           <input id = "inputFieldx1" type = "number"></label>
+           
+           <label>Enter length of x2:
+           <input id = "inputFieldx2" type = "number"></label>
+           
+           <label>Enter length of y1:
+           <input id = "inputFieldy1" type = "number"></label>
+           
+           <label>Enter length of y2:
+           <input id = "inputFieldy2" type = "number"></label>
+           
+           <input id = "calculateButton" type = "button" value = "Calculate">
+           </p>
+        </form>
+        <p id="result"></p>
+        
+    </body>
+</html>

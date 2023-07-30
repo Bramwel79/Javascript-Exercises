@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Radius of Sphere</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+           function start()
+           {
+               var button = document.getElementById("calculateButton");
+               button.addEventListener("click",sphereVolume,false);
+           }
+           function sphereVolume()
+           {
+              var volume; 
+              var r = parseFloat(document.getElementById("inputField").value);
+              volume = (4.0 /3.0) * Math.PI * Math.pow(r,3);
+              document.getElementById("result").innerHTML = "The volume is " +
+                      volume.toFixed(2);
+           }
+           window.addEventListener("load",start,false);
+        </script>
+    </head>
+    <body>
+        <form action = "#">
+           <p><label>Enter radius:
+           <input id = "inputField" type = "number"></label>
+           <input id = "calculateButton" type = "button" value = "Calculate"></p>
+        </form>
+        <p id="result"></p>
+        <p id="result2"></p>
+
+    </body>
+</html>

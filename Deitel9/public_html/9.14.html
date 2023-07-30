@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script>
+           function start()
+           {
+               var button = document.getElementById("processButton");
+               button.addEventListener("click",multiple,false);
+           }
+           
+           function multiple(first, second)
+           {
+               var ans = false;
+               first = document.getElementById("firstField");
+               second = document.getElementById("secondField");
+               b = parseInt(first.value);
+               e = parseInt(second.value);
+               if(e % b === 0)
+               {
+                  ans = true;
+                 
+               }
+                  
+               var result = document.getElementById("result");
+               if(ans === true)
+               {
+                   result.innerHTML = e + " is a multiple of " + b; 
+               }
+               else
+               {
+                   result.innerHTML = e + " is not a multiple of " + b; 
+               }
+                       
+           }
+                      
+            window.addEventListener("load",start,false);
+        </script>
+    </head>
+    <body>
+        
+        <form action = "#">
+           <p><label>First Integer:
+           <input id = "firstField" type = "number"></label>
+           <label>Second Integer:
+           <input id = "secondField" type = "number"></label>
+           <input id = "processButton" type = "button" value = "Calculate"></p>
+        </form>
+        <p id="result"></p>
+    </body>
+</html>
+

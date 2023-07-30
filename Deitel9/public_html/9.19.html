@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Deitel Chapter 9 Exercises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--Exe 9.19-->
+        <script>
+                       
+            function prime(num)
+            {
+                var r,p,x,f;
+                r = -1;
+                f = 0;
+                p = parseInt(num);
+                if(p > 1)
+                {
+                   for(x = 1; x <= p;++x)
+                   {
+                       if(p % x === 0)
+                       {
+                           ++f;
+                       }
+                       
+                   }
+                   if(f === 2)
+                   {
+                       r = 1;
+                   }
+                   
+                }
+                
+               return r;
+                               
+            }
+            function prime2()
+            {
+               var x,y,ans,f,temp,num;
+               ans = -1;
+               f = 0;
+               num = parseInt(document.getElementById("inputField").value);
+               for(x = 2; x <= num;++x)
+               {
+                  for(y = 1; y <= x;++y)
+                  {
+                      if(x % y === 0)
+                      {
+                          ++f;
+                      }
+                  }
+                  if(f === 2)
+                  {
+                     temp =  x + " is a prime number";
+                     document.getElementById("result")
+                             .insertAdjacentHTML('beforeend',temp + '<br>');                             
+                  }
+                  f = 0;
+                  
+                  
+               }
+            }
+            
+            function prime3()
+            {
+               var x,y,ans,f,temp,num;
+               ans = -1;
+               f = 0;
+               num = parseInt(document.getElementById("inputField").value);
+               for(x = 2; x <= num;++x)
+               {
+                  for(y = 1; y <= Math.sqrt(x);++y)// you only need to check
+                  //up to the square root of the number because only one of the 
+                  //numbers must divide the tested number i.e x
+                  {
+                      if(x % y === 0)
+                      {
+                          ++f;
+                      }
+                  }
+                  if(f === 1)
+                  {
+                     temp =  x + " is a prime number";
+                     //document.getElementById("result")
+                             //.insertAdjacentHTML('beforeend',temp + '<br>'); 
+                     document.getElementById("area").value += temp + '\r\n';
+                  }
+                  f = 0;
+                  
+                  
+               }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+        //var no,res;
+        //no = window.prompt( "Enter number", "0" );
+        //res = prime(no);
+        //if(res === 1)
+        //{
+           //alert(no + " is a prime number"); 
+        //}
+        //else
+        //{
+            //alert(no + " is not a prime number");
+        //}
+                
+        </script>
+        
+        <p><label>Enter maximum number:
+           <input id = "inputField" type = "text"></label>
+        </p>  
+        <p>
+            <input id = "process" type = "button" 
+                  value = "Process Prime Numbers" onclick="prime3()">
+        </p>
+        <div id="result">
+        </div>    
+        <div>
+            <textarea id="area" rows="50" cols="50"></textarea>
+        </div>
+    </body>
+</html>
+
+
+

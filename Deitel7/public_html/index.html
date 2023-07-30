@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Chapter 7 Exercises</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="tablecss.css">
+    </head>
+    <body>
+        <!--Exercise 7.11 
+        <script type="text/javascript">
+          var input1;
+          var input2;
+          var numberOfMiles;
+          var numberOfgallons;
+          var x;
+          var oneTankful = 0;
+          var totalTankful = 0;
+          var totalMiles = 0;
+          var totalGallons = 0;
+          
+          document.write("<h2>Miles driven per gallon analysis</h2>");
+          document.write("<hr>");
+          for(x = 0; x < 3;++x)
+          {
+              input1 = prompt("Enter number of miles driven,0");
+              while(isNaN(input1))
+              {
+                  input1 = prompt("Incorect input.Re-enter number \n\
+                                    of miles driven,0");
+                  
+              }
+              numberOfMiles = parseInt(input1);
+              
+              input2 = prompt("Enter number of gallons,0");
+              while(isNaN(input2))
+              {
+                  input2 = prompt("Incorrect input.Re-enter number \n\
+                                    of gallons,0");
+                  
+              }
+              
+              numberOfGallons = parseInt(input2);
+              
+              totalMiles += numberOfMiles;
+              totalGallons += numberOfGallons;
+              oneTankful = numberOfMiles / numberOfGallons;
+              document.write("<h3>miles per gallon for a tankful = " 
+                           + oneTankful + "</h3");
+              document.write("<br>");     
+          }
+          
+          totalTankful = totalMiles /  totalGallons;
+          document.write("<h3>miles per gallon for all tankfuls = " 
+                           + totalTankful + "</h3");
+                   
+        </script>
+        -->
+        <!--Exercise 7.12
+        <script type="text/javascript">
+            var accountNumber;
+            var input0;
+            var input1;
+            var input2;
+            var input3;
+            var input4;
+            var begBalance;
+            var charges;
+            var credits;
+            var creditLimit;
+            var newBalance;
+            
+            input0 = prompt("Enter account number");
+            while(isNaN(input0))
+            {
+                input0 = prompt("Re-enter account number");
+            }
+            accountNumber = parseInt(input0);
+            
+            input1 = prompt("Enter beginning balance");
+            while(isNaN(input1))
+            {
+                input1 = prompt("Re-enter beginning balance");
+            }
+            begBalance = parseInt(input1);
+            
+            input2 = prompt("Enter customer total charges");
+            while(isNaN(input2))
+            {
+                input2 = prompt("Re-enter customer total charges");
+            }
+            charges = parseInt(input2);
+            
+            input3 = prompt("Enter total credits");
+            while(isNaN(input3))
+            {
+                input3 = prompt("Re-enter total credits");
+            }
+            credits = parseInt(input3);
+            
+            input4 = prompt("Enter credit limit");
+            while(isNaN(input4))
+            {
+                input4 = prompt("Re-enter credit limit");
+            }
+            creditLimit = parseInt(input4);
+            
+            newBalance = begBalance + charges - credits;
+            
+            document.write("New balance = " + newBalance);
+            document.write("<br>");
+            if(newBalance > creditLimit)
+            {
+                document.write("Credit limit exceeded");
+            }
+            
+        </script>
+        -->
+        
+        <!--7.13
+        <script type="text/javascript">
+            var input1;
+            var item1;
+            var input2;
+            var item2;
+            var input3;
+            var item3;
+            var input4;
+            var item4;
+            var gross;
+            var weeklyFee = 200;
+            var commission = 0.09;
+            var earnings;
+            
+            input1 = prompt("Enter value for item 1");
+            while(isNaN(input1))
+            {
+                input1 = prompt("Re-enter value for item 1");
+            }
+            item1 = parseFloat(input1);
+            
+            input2 = prompt("Enter value for item 2");
+            while(isNaN(input2))
+            {
+                input2 = prompt("Re-enter value for item 2");
+            }
+            item2 = parseFloat(input2);
+            
+            input3 = prompt("Enter value for item 3");
+            while(isNaN(input3))
+            {
+                input3 = prompt("Re-enter value for item 3");
+            }
+            item3 = parseFloat(input3);
+            
+            input4 = prompt("Enter value for item 4");
+            while(isNaN(input4))
+            {
+                input4 = prompt("Re-enter value for item 4");
+            }
+            item4 = parseFloat(input4);
+            
+            gross = item1 + item2 + item3 + item4;
+            earnings = weeklyFee + (gross * commission);
+            document.write("Earnings = " + earnings);
+            
+        </script>
+        -->
+        
+        <!--7.14
+        <script type="text/javascript">
+            var grossPay;
+            var normalPay;
+            var overtimePay;
+            var normalHours = 40;
+            var overtimeRate = 1.5;
+            var hoursWorked;
+            var hourlyRate;
+            var input1;
+            var input2;
+            var x;
+            
+            for(x = 1; x < 4;++x)
+            {
+               input1 = prompt("Enter number of hours worked for employee no:\n\
+                                " + x);
+               while(isNaN(input1))
+               {
+                   input1 = prompt("Re-enter number of hours worked for \n\
+                                   employee no:" + x);
+               }
+               hoursWorked = parseFloat(input1);
+               
+               input2 = prompt("Enter hourly rate for employe no: " + x);
+               while(isNaN(input2))
+               {
+                   input2 = prompt("Re-enter hourly rate for employe no: " + x);
+               }
+               hourlyRate = parseFloat(input2);
+               
+               if(hoursWorked <= normalHours)
+               {
+                   normalPay = hoursWorked * hourlyRate;
+                   overtimePay = 0;
+                   grossPay = normalPay + overtimePay;
+               }
+               else
+               {
+                   normalPay = normalHours * hourlyRate;
+                   overtimePay = (hoursWorked - normalHours) * overtimeRate;
+                   grossPay = normalPay + overtimePay;
+               }
+               
+               document.write("Gross pay for employee no " + x + " = " + 
+                               grossPay);
+               document.write("<br>");        
+            
+            }
+        </script>
+        -->
+        
+        <!--7.15
+        <script type="text/javascript">
+            var counter;
+            var number;
+            var largest = 0;
+            for(counter = 1; counter <= 10;++counter)
+            {
+                number = prompt("Enter number " + counter);
+                while(isNaN(number))
+                {
+                    number = prompt("Re-enter number " + counter);
+                }
+                if(parseInt(number) > largest)
+                {
+                    largest = parseInt(number);
+                }
+            }
+            
+            document.write("Largest number is " + largest);
+        </script>
+        -->
+        
+        <!--7.16
+        <script type="text/javascript">
+            document.write("<table border='1'>");
+              document.write("<tr>");
+                document.write("<th><strong>N</strong></th>");
+                document.write("<th><strong>10*N</strong></th>");
+                document.write("<th><strong>100*N</strong></th>");
+                document.write("<th><strong>1000*N</strong></th>");
+              document.write("</tr");
+              document.write("<br>");
+            for(var x = 1 ; x <= 6; ++x)
+            {
+             document.write("<tbody>"); 
+              document.write("<tr>");
+                document.write("<td>" + x + "</td>");
+                document.write("<td>" + (10 * x) + "</td>");
+                document.write("<td>" + (100 * x) + "</td>");
+                document.write("<td>" + (1000 * x) + "</td>");
+              document.write("</tr>");
+             document.write("</tbody>"); 
+            }
+            document.write("</table>");
+           
+        </script>
+        -->
+        <!--7.17
+        <script type="text/javascript">
+            var counter;
+            var number;
+            var previous = 0;
+            var current;
+            var larger;
+            var largest;
+            for(counter = 1; counter <= 10;++counter)
+            {
+                number = prompt("Enter number " + counter);
+                while(isNaN(number))
+                {
+                    number = prompt("Re-enter number " + counter);
+                }
+                current = parseInt(number);
+                if( current > previous)
+                {
+                    larger = previous;
+                    largest = current;
+                    previous = current;
+                }
+                else
+                {
+                    if(current > larger)
+                    {
+                        larger = current;
+                    }
+                    largest = previous;
+                }
+                              
+            }
+            
+            document.write("Larger number is " + larger);
+            document.write("<br>");
+            document.write("Largest number is " + largest);
+              
+        </script>
+        -->
+        <!--7.20
+        <script type="text/javascript">
+          var input;  
+          var number;
+          var digitOriginal1;
+          var digitOriginal2;
+          var digitOriginal3;
+          var digitOriginal4;
+          var digitOriginal5;
+          var digit1;
+          var digit2;
+          var digit3;
+          var digit4;
+          var digit5;
+                              
+          input = prompt("Enter 5 digit integer");
+                  
+          while(input.length > 5)
+          {
+              alert("Integer input not correct");
+              input = prompt("Re-enter 5 digit integer");
+          }
+          
+          if(isNaN(input))
+          {
+              alert("Input is not numerical");
+          }
+          
+         number = parseInt(input);
+                    
+        
+        digitOriginal1 = parseInt(number / 10000);
+        digitOriginal2 = number % 10000;
+        digitOriginal2 = parseInt(digitOriginal2 / 1000);
+        digitOriginal3 = number % 1000;
+        digitOriginal3 = parseInt(digitOriginal3 / 100);
+        digitOriginal4 = number % 100;
+        digitOriginal4 = parseInt(digitOriginal4 / 10);
+        digitOriginal5 = number % 10;
+        
+        
+        digit1 = number % 10;
+        digit2 = number % 100;
+        digit2 = parseInt(digit2 / 10);
+        digit3 = number % 1000;
+        digit3 = parseInt(digit3 / 100);
+        digit4 = number % 10000;
+        digit4 = parseInt(digit4 / 1000);
+        digit5 = parseInt(number / 10000);
+        
+        if (digitOriginal1 === digit1 &&
+            digitOriginal2 === digit2 &&
+            digitOriginal3 === digit3 &&
+            digitOriginal4 === digit4 &&
+            digitOriginal5 === digit5)
+        {
+            document.write(number + " is a palindrome.");
+        }
+        else
+        {
+            document.write(number + " is not a palindrome.");
+        }
+        
+         
+        </script>
+        
+        
+       <!--7.21
+       <script type="text/javascript">
+           document.write("<table border='1'>");
+           document.write("<tr>");
+           document.write("<th>Number</th>");
+           document.write("<th>Multiple</th>");
+           document.write("</tr>");
+           var no = 1;
+           while(true)
+           {
+              document.write("<tr>");
+              document.write("<td>" + no + "</td>");
+              document.write("<td>" + (no*2) + "</td>");
+              document.write("</tr>");
+              ++no;
+           }
+           document.write("</table>");
+           
+       </script>
+       -->
+       
+       <!--7.22
+       <script type="text/javascript">
+           var input;
+           var number;
+           var digit1;
+           var digit2;
+           var digit3;
+           var digit4;
+           var encryptDigit1;
+           var encryptDigit2;
+           var encryptDigit3;
+           var encryptDigit4;
+           var temp1;
+           var temp2;
+           var encryptedInteger;
+           
+           input = prompt("Enter 4 digit integer");
+           while(input.length > 4)
+           {
+               input = prompt("Re-enter 4 digit integer");
+           }
+           if(isNaN(input))
+           {
+              alert("Input is not numerical");
+           }
+         
+           number = parseInt(input);
+           digit1 = parseInt(number / 1000);
+           digit2 = number % 1000;
+           digit2 = parseInt(digit2 / 100);
+           digit3 = number % 100;
+           digit3 = parseInt(digit3 / 10);
+           digit4 = number % 10;
+           digit4 = parseInt(digit4 / 1);
+           
+           encryptDigit1 = (digit1 + 7) % 10;
+           encryptDigit2 = (digit2 + 7) % 10;
+           encryptDigit3 = (digit3 + 7) % 10;
+           encryptDigit4 = (digit4 + 7) % 10;
+           
+           //swap digits
+           temp1 = encryptDigit1;
+           encryptDigit1 = encryptDigit3;
+           encryptDigit3 = temp1;
+           
+           temp2 = encryptDigit2;
+           encryptDigit2 = encryptDigit4;
+           encryptDigit4 = temp2;
+           
+           encryptedInteger = ((encryptDigit1 * 1000) +
+                              (encryptDigit2 * 100) +
+                              (encryptDigit3 * 10) +
+                              (encryptDigit4 * 1 ))
+           document.write("Encrypted number is " + encryptedInteger);           
+       </script>
+       -->
+       
+       <!--7.23
+       <script type="text/javascript">
+           var input;
+           var number;
+           var digit1;
+           var digit2;
+           var digit3;
+           var digit4;
+           var decryptDigit1;
+           var decryptDigit2;
+           var decryptDigit3;
+           var decryptDigit4;
+           var temp1;
+           var temp2;
+           var decryptedInteger;
+           
+           input = prompt("Enter 4 digit integer");
+           while(input.length > 4)
+           {
+               input = prompt("Re-enter 4 digit integer");
+           }
+           if(isNaN(input))
+           {
+              alert("Input is not numerical");
+           }
+         
+           number = parseInt(input);
+           digit1 = parseInt(number / 1000);
+           digit2 = number % 1000;
+           digit2 = parseInt(digit2 / 100);
+           digit3 = number % 100;
+           digit3 = parseInt(digit3 / 10);
+           digit4 = number % 10;
+           digit4 = parseInt(digit4 / 1);
+                     
+           //swap digits
+           temp1 = digit1;
+           digit1 = digit3;
+           digit3 = temp1;
+           
+           temp2 = digit2;
+           digit2 = digit4;
+           digit4 = temp2;
+           
+           decryptDigit1 = (digit1 + 3) % 10;
+           decryptDigit2 = (digit2 + 3) % 10;
+           decryptDigit3 = (digit3 + 3) % 10;
+           decryptDigit4 = (digit4 + 3) % 10;
+           
+           decryptedInteger = ((decryptDigit1 * 1000) +
+                              (decryptDigit2 * 100) +
+                              (decryptDigit3 * 10) +
+                              (decryptDigit4 * 1 ))
+           document.write("Decrypted number is " + decryptedInteger);           
+       </script>
+       -->
+    </body>
+</html>
